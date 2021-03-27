@@ -35,10 +35,33 @@
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <ul class="nav navbar-nav navbar-right" *ngIf="user$ | async as user; else login">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img class="avatar" src="/assets/avatar/dott.jpg" alt="" srcset=""> {{ user.email }}
+        </a>
+        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink='/pacientePerfil'>Mi perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink='/turnoReserva'>Reservar Turno</a>
+          <a class="dropdown-item" routerLink='/turnoListado'>Consultar / Anular Turno</a>
+          <a class="dropdown-item" routerLink='/historiaClinica'>Historia Clinica</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="" (click)="onLogout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+    <ng-template #login>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/registro">Registro</a>
+        </li>
+      </ul>
+    </ng-template>
   </div>
 </nav>
 
