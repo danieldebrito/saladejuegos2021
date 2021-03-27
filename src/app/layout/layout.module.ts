@@ -7,7 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StickyComponent } from './components/sticky/sticky.component';
 
 import { HomeModule } from './pages/home/home.module';
-
+import { AboutModule } from './pages/about/about.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { HomeModule } from './pages/home/home.module';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    HomeModule
+    HomeModule,
+    AboutModule
   ],
   exports: [
     NavbarComponent,

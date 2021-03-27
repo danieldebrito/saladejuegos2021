@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'about',
+    loadChildren: () => import('./layout/pages/about/about.module').then(m => m.AboutModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./auth/pages/login/login.module').then(m => m.LoginModule),
     data: { animation: 'login' }
