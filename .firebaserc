@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "saladejuegos2021-8f6b6": {
+      "hosting": {
+        "saladejuegos2021": [
+          "saladejuegos2021-8f6b6"
+        ]
+      }
+    }
+  }
+}
