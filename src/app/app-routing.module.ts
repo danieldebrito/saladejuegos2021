@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'permisoDenegado',
     loadChildren: () => import('./auth/pages/permiso-denegado/permiso-denegado.module').then(m => m.PermisoDenegadoModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
   }
 ];
 

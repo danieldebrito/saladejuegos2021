@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 // ============================== FIREBASE ==================================== //
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -18,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     // ****************** SERVICES MODULES ************************ //
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
