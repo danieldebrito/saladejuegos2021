@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
 import { GamesModuleModule } from './games/games-module.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GamesModuleModule } from './games/games-module.module';
     // ****************** MYS MODULES ************************ //
     LayoutModule,
     AuthModule,
-    GamesModuleModule
+    GamesModuleModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

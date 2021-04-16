@@ -1,0 +1,16 @@
+[
+    {
+        "name": "ppt",
+        "redirectTo": "ppt",
+        "img": "/assets/games/ppt.jpg",
+        "detalle": "piedra papel o tijera",
+        "descripcion": "El clasico juego"
+    },
+    {
+        "name": "tateti",
+        "redirectTo": "tateti",
+        "img": "/assets/games/tateti.jpg",
+        "detalle": "ta te ti",
+        "descripcion": "Antes lo jugabas en papel, ahora digital"
+    }
+]
