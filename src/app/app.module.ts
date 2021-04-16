@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // ============================== mys modules ============================== //
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
+import { GamesModuleModule } from './games/games-module.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,14 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MaterialModule,
     // ****************** SERVICES MODULES ************************ //
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     // ****************** MYS MODULES ************************ //
     LayoutModule,
     AuthModule,
+    GamesModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

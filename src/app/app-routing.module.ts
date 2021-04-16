@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BoardComponent } from './games/components/board/board.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,30 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
+  },
+  {
+    path: 'juegos',
+    // loadChildren: () => import('./games/components/board/board.module').then(m => m.BoardModule),
+    component: BoardComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./games/components/layout-games/layout.module').then(m => m.LayoutModuleModule),
+      },
+      {
+        path: 'ppt',
+        loadChildren: () => import('./games/pages/ppt/ppt.module').then(m => m.PptModule),
+      }
+      ,
+      {
+        path: 'tateti',
+        loadChildren: () => import('./games/pages/tateti/tateti.module').then(m => m.TatetiModule),
+      }    ]
+  }
+  ,
+  {
+    path: 'ranking',
+    loadChildren: () => import('./games/components/jugadas-listado/jugadas-listado.module').then(m => m.JugadasListadoModule),
   }
 ];
 
