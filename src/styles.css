@@ -2,3 +2,36 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.dark_liver {
+    background-color: #584B53;
+}
+
+.copper_rose {
+    background-color: #9D5C63;
+}
+
+.piriwinkle_crayola {
+    background-color: #D6E3F8;
+}
+
+.seashell {
+    background-color: #FEF5EF;
+}
+
+.desert_sand {
+  background-color :#E4BB97;
+}
+
+.celeste {
+    color: #D6E3F8;
+}
+
+.marron {
+    color: #584B53;
+}
+
+.marron_rose {
+  color: #9D5C63;
+}
