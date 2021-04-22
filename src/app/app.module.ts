@@ -4,6 +4,7 @@ import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 // ============================== FIREBASE ==================================== //
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     MaterialModule,
+    HttpClientModule,
     // ****************** SERVICES MODULES ************************ //
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,

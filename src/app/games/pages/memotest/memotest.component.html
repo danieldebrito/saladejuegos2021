@@ -6,14 +6,30 @@
         <tr *ngFor="let fila of grilla">
             <td *ngFor="let columna of fila" (click)="elegirCelda(columna)">
 
-                <i class="fa fa-heart icon" *ngIf="columna.iconSrc == 'heart' && columna.seleccionada"></i>
-                <i class="fa fa-car icon" *ngIf="columna.iconSrc == 'car' && columna.seleccionada"></i>
-                <i class="fa fa-apple icon" *ngIf="columna.iconSrc == 'apple' && columna.seleccionada"></i>
-                <i class="fa fa-bell icon" *ngIf="columna.iconSrc == 'bell' && columna.seleccionada"></i>
-                <i class="fa fa-bicycle icon" *ngIf="columna.iconSrc == 'bicycle' && columna.seleccionada"></i>
-                <i class="fa fa-bomb icon" *ngIf="columna.iconSrc == 'bomb' && columna.seleccionada"></i>
-                <i class="fa fa-bolt icon" *ngIf="columna.iconSrc == 'bolt' && columna.seleccionada"></i>
-                <i class="fa fa-book icon" *ngIf="columna.iconSrc == 'book' && columna.seleccionada"></i>
+                <i *ngIf="columna.iconSrc == 'heart' && columna.seleccionada">
+                    <img src='{{ paises[3].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'car' && columna.seleccionada">
+                    <img src='{{ paises[6].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'apple' && columna.seleccionada">
+                    <img src='{{ paises[5].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'bell' && columna.seleccionada">
+                    <img src='{{ paises[0].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'bicycle' && columna.seleccionada">
+                    <img src='{{ paises[1].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'bomb' && columna.seleccionada">
+                    <img src='{{ paises[2].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'bolt' && columna.seleccionada">
+                    <img src='{{ paises[4].flag }}' alt="" srcset="">
+                </i>
+                <i *ngIf="columna.iconSrc == 'book' && columna.seleccionada">
+                    <img src='{{ paises[7].flag }}' alt="" srcset="">
+                </i>
                 <i class="fa fa-circle icon" *ngIf="!columna.seleccionada"></i>
 
             </td>

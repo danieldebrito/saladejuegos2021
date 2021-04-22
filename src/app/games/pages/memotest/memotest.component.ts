@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JugadasService } from 'src/app/services/jugadas.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Jugada } from 'src/app/class/jugada';
+import { PaisesService } from './services/paises-service.service';
+import { Pais } from 'src/app/class/pais';
 
 @Component({
   selector: 'app-memotest',
@@ -11,7 +13,8 @@ import { Jugada } from 'src/app/class/jugada';
 export class MemotestComponent implements OnInit {
 
   grilla = [[]];
-
+  public paises: Pais[] = [];
+  pares = [];
   public juegoNombre: string;
   public resultado = '';
   public puntaje = 0;
@@ -21,7 +24,7 @@ export class MemotestComponent implements OnInit {
   public mensaje = '';
 
   elementos = [
-    { iconSrc: 'heart', seleccionada: false },
+    { iconSrc: 'heart', seleccionada: false},
     { iconSrc: 'car', seleccionada: false },
     { iconSrc: 'book', seleccionada: false },
     { iconSrc: 'apple', seleccionada: false },
@@ -39,21 +42,11 @@ export class MemotestComponent implements OnInit {
     { iconSrc: 'bolt', seleccionada: false }
   ];
 
-  pares = [];
-
   constructor(
     private jugadasService: JugadasService,
+    private paisesService: PaisesService,
     public auth: AuthService) {
     this.juegoNombre = 'Memotest';
-  }
-
-  ngOnInit(): void {
-    this.iniciarGrilla();
-    this.auth.user$.subscribe(
-      item => {
-        this.jugada.jugador = item.email;
-      }
-    );
   }
 
   public addJugada(): void {
@@ -79,7 +72,6 @@ export class MemotestComponent implements OnInit {
       }
     }
   }
-
 
   elegirCelda(celda): any {
     if (celda.seleccionada) {
@@ -120,4 +112,19 @@ export class MemotestComponent implements OnInit {
     }
   }
 
+  public getPaises() {
+    this.paisesService.ListarO().subscribe(response => {
+        this.paises = response;
+    });
+  }
+
+  ngOnInit(): void {
+    this.iniciarGrilla();
+    this.auth.user$.subscribe(
+      item => {
+        this.jugada.jugador = item.email;
+      }
+    );
+    this.getPaises();
+  }
 }

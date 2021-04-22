@@ -4,6 +4,7 @@ import { MemotestComponent } from './memotest.component';
 import { MemotestRoutingModule } from './memotyest-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MaterialModule } from 'src/app/material.module';
     CommonModule,
     MemotestRoutingModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class MemotestModule { }
