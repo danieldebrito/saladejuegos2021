@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './games/components/board/board.component';
+import { CommonModule } from '@angular/common';
+import { AdminGuard } from './auth/guards/admin.guard';
+
 
 const routes: Routes = [
   {
@@ -40,12 +43,14 @@ const routes: Routes = [
   },
   {
     path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule),
+    canActivate: [AdminGuard]
   },
   {
     path: 'juegos',
     // loadChildren: () => import('./games/components/board/board.module').then(m => m.BoardModule),
     component: BoardComponent,
+    canActivate: [AdminGuard],
     children: [
       {
         path: '',
@@ -59,7 +64,13 @@ const routes: Routes = [
       {
         path: 'tateti',
         loadChildren: () => import('./games/pages/tateti/tateti.module').then(m => m.TatetiModule),
-      }    ]
+      }
+      ,
+      {
+        path: 'memotest',
+        loadChildren: () => import('./games/pages/memotest/memotest.module').then(m => m.MemotestModule),
+      }
+    ]
   }
   ,
   {
@@ -69,7 +80,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

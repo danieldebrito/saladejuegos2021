@@ -1,0 +1,21 @@
+.nav-link {
+  font-size: 25px;
+  color: #e4bb97 !important;
+}
+
+.navbar-collapse {
+  justify-content: center,
+}
+
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  font-weight: bold;
+}
+
+img {
+  width: 140px;
+}
