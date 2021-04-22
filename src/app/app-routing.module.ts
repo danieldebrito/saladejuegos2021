@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './games/components/board/board.component';
 import { CommonModule } from '@angular/common';
 import { AdminGuard } from './auth/guards/admin.guard';
+import { UsuarioGuard } from './auth/guards/usuario.guard';
 
 
 const routes: Routes = [
@@ -44,13 +45,13 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule),
-    canActivate: [AdminGuard]
+    canActivate: [UsuarioGuard, AdminGuard],
   },
   {
     path: 'juegos',
     // loadChildren: () => import('./games/components/board/board.module').then(m => m.BoardModule),
     component: BoardComponent,
-    canActivate: [AdminGuard],
+    canActivate: [UsuarioGuard, AdminGuard],
     children: [
       {
         path: '',

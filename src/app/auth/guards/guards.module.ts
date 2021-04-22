@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminGuard } from './admin.guard';
-import { PacienteGuard } from './alumno.guard';
-import { ProfecionalGuard } from './profesor.guard';
+import { UsuarioGuard } from './usuario.guard';
 
 @NgModule({
   declarations: [],
@@ -12,8 +11,7 @@ import { ProfecionalGuard } from './profesor.guard';
   ],
   providers: [
     AdminGuard,
-    PacienteGuard,
-    ProfecionalGuard,
+    UsuarioGuard
   ],
 })
 export class GuardsModule { }

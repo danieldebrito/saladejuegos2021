@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfecionalGuard implements CanActivate {
+export class UsuarioGuard implements CanActivate {
 
   constructor( private authSvc: AuthService, private router: Router ) {}
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     return this.authSvc.user$.pipe(
       take(1),
-      map((user) => user && (this.authSvc.isProfesor(user) || this.authSvc.isProfesor(user))),
+      map((user) => user && (this.authSvc.isUsuario(user) || this.authSvc.isUsuario(user))),
       tap((canEdit) => {
         if (!canEdit) {
           this.router.navigate(['/permisoDenegado']);
