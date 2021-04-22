@@ -45,13 +45,13 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule),
-    canActivate: [UsuarioGuard, AdminGuard],
+    canActivate: [UsuarioGuard],
   },
   {
     path: 'juegos',
     // loadChildren: () => import('./games/components/board/board.module').then(m => m.BoardModule),
     component: BoardComponent,
-    canActivate: [UsuarioGuard, AdminGuard],
+    canActivate: [UsuarioGuard],
     children: [
       {
         path: '',

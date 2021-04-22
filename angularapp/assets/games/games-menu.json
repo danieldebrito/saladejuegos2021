@@ -12,5 +12,12 @@
         "img": "/assets/games/tateti.jpg",
         "detalle": "ta te ti",
         "descripcion": "Antes lo jugabas en papel, ahora digital"
+    },
+    {
+        "name": "memotest",
+        "redirectTo": "memotest",
+        "img": "/assets/games/memotest.jpg",
+        "detalle": "Memotest",
+        "descripcion": "Alcoyana Alcoyama"
     }
 ]
