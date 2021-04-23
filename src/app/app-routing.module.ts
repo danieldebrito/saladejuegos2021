@@ -71,6 +71,11 @@ const routes: Routes = [
         path: 'memotest',
         loadChildren: () => import('./games/pages/memotest/memotest.module').then(m => m.MemotestModule),
       }
+      ,
+      {
+        path: '',
+        loadChildren: () => import('./games/games-module.module').then(m => m.GamesModuleModule),
+      }
     ]
   }
   ,
