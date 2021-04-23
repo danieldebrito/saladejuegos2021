@@ -1,8 +1,9 @@
 .nav-link {
-  font-size: 25px;
   color: #e4bb97 !important;
+  font-weight:bold;
+  /*font-size:2em;*/
+  font-family: Century Gothic, sans-serif;
 }
-
 .navbar-collapse {
   justify-content: center,
 }
