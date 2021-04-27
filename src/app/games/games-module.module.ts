@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 // ******************************** ROUTING ****************************************** //
 import { GamesRoutingModule } from './games-routing.module';
 // ******************************** COMPONENTS ****************************************** //
@@ -20,7 +21,8 @@ import { MaterialModule } from '../material.module';
     BoardModule,
     TatetiModule,
     GamesRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   declarations: [MemorizaComponent],
 })

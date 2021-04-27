@@ -1,37 +1,47 @@
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-md-12">
-            <p> {{ display }}</p>
-        </div>
+<div class="row">
+    <div class="col-sm-4">
+
     </div>
-    <div class="row">
-        <div class="col-md-12 mt-2">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 mt-2" *ngFor="let item of list">
-            <div class="card">
-                <div class="card-block">
-                    <h1 class="card-title"> {{ item }}</h1>
+    <div class="col-sm-4">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <p> {{ display }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-2">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModel]="respuesta">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mt-2" *ngFor="let item of list" (click)="agregarNroRespuestaYcompara(item)">
+                    <div class="card">
+                        <div class="card-block">
+                            <h1 class="card-title"> {{ item }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <div class="card-block">
+                            <h1 class="card-title"> 0</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 mt-2" (click)="allClear()" >
+                    <div class="card">
+                        <div class="card-block">
+                            <h1 class="card-title">CLEAR</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-block">
-                    <h1 class="card-title"> 0</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8 mt-2">
-            <div class="card">
-                <div class="card-block">
-                    <h1 class="card-title">ENTER</h1>
-                </div>
-            </div>
-        </div>
+    <div class="col-sm-4">
+
     </div>
 </div>
