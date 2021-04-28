@@ -26,32 +26,25 @@ export class MemorizaComponent implements OnInit {
     this.display += Math.round(Math.random() * (9));
   }
 
-  public agregarNroRespuestaYcompara(nroPulsado) {
-
-    let tam = this.display.length;
+  public cargarNroPulsado(nroPulsado) {
+    
     this.respuesta += nroPulsado;
+    let tam = this.respuesta.length - 1;
 
-    for (let i = 0; i < tam; i++) {
-      if (this.display[i] === this.respuesta[i]) {
-        if (i === tam-1) {
-          this.agregaNroAleatorio();
-        }
-      } else {
-        alert('falseee');
-        return this.resultado = false;
-      }
-    } 
+    if (this.respuesta[tam] !== this.display[tam]) {
+      alert('falsee');
+    }
+
+    if (this.display.length - 1 === tam) {
+      this.agregaNroAleatorio();
+      
+      this.respuesta = '';
+    }
 
 
-    this.respuesta = '';
-
-    console.log(this.respuesta === this.display);
-    this.resultado = (this.respuesta === this.display);
   }
-
 
   ngOnInit(): void {
     this.allClear();
   }
-
 }

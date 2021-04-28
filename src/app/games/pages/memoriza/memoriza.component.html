@@ -10,12 +10,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 mt-2">
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModel]="respuesta">
+                <div class="col-md-12">
+                    <p> {{ respuesta }}</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 mt-2" *ngFor="let item of list" (click)="agregarNroRespuestaYcompara(item)">
+                <div class="col-md-4 mt-2" *ngFor="let item of list" (click)="cargarNroPulsado(item)">
                     <div class="card">
                         <div class="card-block">
                             <h1 class="card-title"> {{ item }}</h1>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 mt-2">
+                <div class="col-md-4 mt-2" (click)="cargarNroPulsado(0)">
                     <div class="card">
                         <div class="card-block">
                             <h1 class="card-title"> 0</h1>

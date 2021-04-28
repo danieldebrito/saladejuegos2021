@@ -26,3 +26,9 @@
 }.one-line {
     display: inline-block;
 }
+
+/****************************************************/
+
+.mostrar {
+    display: none;
+  }
