@@ -79,6 +79,7 @@ export class MemorizaComponent implements OnInit {
       this.mensaje = 'PERDISTE!!!';
 
       this.display = this.serieAleatoria;
+      this.deshabilitaBotones = true;
       return false;
     }
 
