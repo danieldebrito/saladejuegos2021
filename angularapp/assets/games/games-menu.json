@@ -19,5 +19,12 @@
         "img": "/assets/games/memotest.jpg",
         "detalle": "Memotest",
         "descripcion": "Alcoyana Alcoyama"
+    },
+    {
+        "name": "Memorizá",
+        "redirectTo": "memoriza",
+        "img": "/assets/games/memoriza.jpg",
+        "detalle": "Memoriza",
+        "descripcion": "Memorizá la Secuencia de Números"
     }
 ]
