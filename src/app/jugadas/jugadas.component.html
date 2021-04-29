@@ -1,0 +1,45 @@
+<div class="container m-3">
+    <mat-toolbar color="primary">
+        Listado de Jugadas
+    </mat-toolbar>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="jugador">
+                <th mat-header-cell *matHeaderCellDef> Jugador </th>
+                <td mat-cell *matCellDef="let element"> {{element.jugador}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="juego">
+                <th mat-header-cell *matHeaderCellDef> Juego </th>
+                <td mat-cell *matCellDef="let element"> {{element.juego}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="fechaHora">
+                <th mat-header-cell *matHeaderCellDef> Fecha y Hora </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaHora}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="puntaje">
+                <th mat-header-cell *matHeaderCellDef> Puntaje </th>
+                <td mat-cell *matCellDef="let element"> {{element.puntaje}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="resultado">
+                <th mat-header-cell *matHeaderCellDef> Resultado </th>
+                <td mat-cell *matCellDef="let element"> {{element.resultado}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

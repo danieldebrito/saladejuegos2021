@@ -80,8 +80,8 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'ranking',
-    loadChildren: () => import('./games/components/jugadas-listado/jugadas-listado.module').then(m => m.JugadasListadoModule),
+    path: 'jugadas',
+    loadChildren: () => import('./jugadas/jugadas.module').then(m => m.JugadasModule),
   }
 ];
 
