@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugada } from 'src/app/class/jugada';
 import { JugadasService } from 'src/app/services/jugadas.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-memoriza',
@@ -19,6 +20,7 @@ export class MemorizaComponent implements OnInit {
   public list = [7, 8, 9, 4, 5, 6, 1, 2, 3]; // botonera
 
   public cantAciertos = 0;
+  public cantAciertosDisplay = 0;
 
   public juegoNombre: string;
   public resultado = '';
@@ -30,6 +32,7 @@ export class MemorizaComponent implements OnInit {
 
   constructor(
     private jugadasService: JugadasService,
+    public auth: AuthService
   ) {
     this.juegoNombre = 'Memorizá';
   }
@@ -84,6 +87,11 @@ export class MemorizaComponent implements OnInit {
     }
 
     this.cantAciertos++;
+    
+    if(this.cantAciertosDisplay < this.cantAciertos){
+      this.cantAciertosDisplay = this.cantAciertos;
+    }
+
     if (this.cantAciertos === 5){
 
       this.resultado = 'Ganó';
@@ -103,5 +111,11 @@ export class MemorizaComponent implements OnInit {
 
   ngOnInit(): void {
     this.allClear();
+    window.scroll(0, 0);
+    this.auth.user$.subscribe(
+      item => {
+        this.jugada.jugador = item.email;
+      }
+    );
   }
 }

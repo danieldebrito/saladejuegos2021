@@ -1,0 +1,118 @@
+<div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+        <div class="row">
+            <div class="col-md-12 mb-5">
+                <h2>Angular Forms</h2>
+            </div>
+        </div>
+        <div class="row form">
+            <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+                    formControlName="nombre">
+                <small class="invalid" *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
+                    El nombre es requerido
+                </small>
+                <small class="invalid" *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
+                    El nombre no puede contener espacios
+                </small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
+                    formControlName="apellido">
+                <small class="invalid" *ngIf="formulario.controls.apellido.errors?.required && formulario.controls.apellido.touched">
+                    El apellido es requerido
+                </small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="dni" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                <small class="invalid" *ngIf="formulario.controls.edad.errors?.required && formulario.controls.edad.touched">
+                    La edad es requerida
+                </small>
+                <small class="invalid" *ngIf="formulario.controls.edad.errors?.min || formulario.controls.edad.errors?.max && formulario.controls.edad.touched">
+                    La edad debe ser de 18 a 99 años
+                </small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-control" id="sexo" formControlName="sexo">
+                    <option value="">Seleccione uno</option>
+                    <option value="F">Femenino</option>
+                    <option value="M">Masculino</option>
+                </select>
+                <small class="invalid" *ngIf="formulario.controls.sexo.errors?.required && formulario.controls.sexo.touched">
+                    El sexo es requerido
+                </small>
+            </div>
+            <div class="col-md-6 mb-5">
+                <label for="telefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono"
+                    formControlName="telefono">
+                <small class="invalid" *ngIf="formulario.controls.telefono.errors?.required && formulario.controls.telefono.touched">
+                    El telefono es requerido
+                </small>
+            </div>
+            <div class="col-md-6 mb-5">
+                <label for="cual" class="form-label">Cual Juego te Gustó Mas ??</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                            checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Piedra Papel o Tijera
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Memotest
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                        <label class="form-check-label" for="gridRadios3">
+                            TaTeTi
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+                        <label class="form-check-label" for="gridRadios4">
+                            Memorizá
+                        </label>
+                    </div>
+                </div>
+                <small class="invalid" *ngIf="formulario.controls.gridRadios.errors?.required && formulario.controls.telefono.touched">
+                    El telefono es requerido
+                </small>
+            </div>
+            <div class="col-md-12 mb-5">
+                <div class="form-group">
+                    <label for="textarea">Tu Comentario</label>
+                    <textarea class="form-control" id="textarea" rows="3" formControlName="textarea"></textarea>
+                </div>
+                <small class="invalid" *ngIf="formulario.controls.textarea.errors?.required && formulario.controls.textarea.touched">
+                    El comentario es requerido
+                </small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-5">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+                    <label for="recordar" class="form-check-label" for="terminos">
+                        Aceptar términos y condiciones
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12 d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block"
+                    [disabled]="formulario.invalid || !formulario.controls.terminos.value">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -82,6 +82,17 @@ const routes: Routes = [
   {
     path: 'jugadas',
     loadChildren: () => import('./jugadas/jugadas.module').then(m => m.JugadasModule),
+  },
+  {
+    path: 'encuestas',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./encuestas/encuestas.module').then( m => m.EncuestasModule ),
+      }
+    ]
+
+
   }
 ];
 
