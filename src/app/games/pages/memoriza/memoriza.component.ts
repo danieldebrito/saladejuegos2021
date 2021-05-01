@@ -21,6 +21,7 @@ export class MemorizaComponent implements OnInit {
 
   public cantAciertos = 0;
   public cantAciertosDisplay = 0;
+  public cantAciertosDesafiados = 0;
 
   public juegoNombre: string;
   public resultado = '';
@@ -53,6 +54,8 @@ export class MemorizaComponent implements OnInit {
     this.serieAleatoria = '';
     this.mensaje = 'Jugando';
     this.agregaNroAleatorio();
+    this.cantAciertosDisplay = 0;
+    this.cantAciertos = 0;
   }
 
   public agregaNroAleatorio() {
@@ -87,17 +90,19 @@ export class MemorizaComponent implements OnInit {
     }
 
     this.cantAciertos++;
-    
-    if(this.cantAciertosDisplay < this.cantAciertos){
+
+    if (this.cantAciertosDisplay <= this.cantAciertos) {
       this.cantAciertosDisplay = this.cantAciertos;
     }
 
-    if (this.cantAciertos === 5){
+    if (this.cantAciertos === this.cantAciertosDesafiados) {
 
       this.resultado = 'Ganó';
       this.puntaje = 10;
       this.addJugada();
       this.mensaje = 'GANASTE!!!';
+
+      this.display = this.serieAleatoria;
 
       return true;
     }
@@ -109,8 +114,9 @@ export class MemorizaComponent implements OnInit {
     }
   }
 
+  
+
   ngOnInit(): void {
-    this.allClear();
     window.scroll(0, 0);
     this.auth.user$.subscribe(
       item => {

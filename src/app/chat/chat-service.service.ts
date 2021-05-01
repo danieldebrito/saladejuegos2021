@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Mensaje } from './models/mensaje';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -11,8 +10,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class ChatServiceService {
-
-
   private itemsCollection: AngularFirestoreCollection<any>;
   public chats: Mensaje[] = [];
   public usuario: any = {};
@@ -28,7 +25,7 @@ export class ChatServiceService {
           return;
         }
 
-        this.usuario.nombre = user.displayName;
+        this.usuario.nombre = user.email;
         this.usuario.uid = user.uid;
       });
     }
@@ -64,42 +61,3 @@ export class ChatServiceService {
     return this.itemsCollection.add(mensaje);
   }
 }
-
-
-
-  /*
-
-  ItemsCollection: AngularFirestoreCollection<Especialidad>;
-  ItemDoc: AngularFirestoreDocument<Especialidad>;
-  Items: Observable<Especialidad[]>;
-
-  constructor(public db: AngularFirestore) {
-    this.ItemsCollection = this.db.collection('especialidades');
-    this.Items = this.ItemsCollection.snapshotChanges().pipe(map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Especialidad;
-        data.id = a.payload.doc.id;
-        return data;
-      });
-    }));
-  }
-
-  public getItems() {
-    return this.Items;
-  }
-
-  public deleteItem(Item: Especialidad) {
-    this.ItemDoc = this.db.doc(`especialidades/${Item.id}`);
-    this.ItemDoc.delete();
-  }
-
-  public addItem(Item: Especialidad) {
-    this.ItemsCollection.add(Item);
-  }
-
-  public updateItem(Item: Especialidad) {
-    this.ItemDoc = this.db.doc(`especialidades/${Item.id}`);
-    this.ItemDoc.update(Item);
-  }
-}
-*/

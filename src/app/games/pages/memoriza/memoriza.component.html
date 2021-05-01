@@ -2,6 +2,28 @@
     <div class="col-3"></div>
     <div class="col-6">
         <mat-card class="example-card">
+
+            <mat-card-actions>
+                <div class="row">
+                    <div class="col-2">
+                        <button mat-raised-button color="accent" (click)="allClear()">INICIAR</button>
+                    </div>
+                    <div class="col-2">
+                        <button mat-raised-button color="accent" (click)="allClear()">REINICIAR</button>
+                    </div>
+                    <div class="col-3">
+                        <mat-card> Aciertos : {{ cantAciertosDisplay }}</mat-card>
+                    </div>
+                    <div class="col-3">
+                        <label for="">Cuantos aciertos haces :</label>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Objetivo de Aciertos : </mat-label>
+                            <input type="number" matInput placeholder="Ingresá la Cantidad : " value=""  [(ngModel)]="cantAciertosDesafiados" >
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-actions>
+
             <mat-card-header>
                 <mat-card-title>{{ display }}</mat-card-title>
                 <mat-card-title>{{ respuestaDisplay }}</mat-card-title>
@@ -23,25 +45,6 @@
                     </div>
                 </div>
             </mat-card-content>
-            <mat-card-actions>
-                <div class="row">
-                    <div class="col-2">
-                        <button mat-raised-button color="accent" (click)="allClear()">REINICIAR</button>
-                    </div>
-                    <div class="col-3">
-                        <mat-card>{{ cantAciertos }}</mat-card>
-                    </div>
-                    <div class="col-3">
-                        <mat-checkbox class="example-margin">Modo Infinito</mat-checkbox>
-                    </div>
-                    <div class="col-3">
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Cuantos haces ????</mat-label>
-                            <input type="number" matInput placeholder="Cantidad" value="">
-                          </mat-form-field>
-                    </div>
-                </div>
-            </mat-card-actions>
         </mat-card>
     </div>
     <div class="col-3">

@@ -89,10 +89,10 @@
             </div>
             <div class="col-md-12 mb-5">
                 <div class="form-group">
-                    <label for="textarea">Tu Comentario</label>
-                    <textarea class="form-control" id="textarea" rows="3" formControlName="textarea"></textarea>
+                    <label for="comentario">Tu Comentario</label>
+                    <textarea class="form-control" id="comentario" rows="3" formControlName="comentario"></textarea>
                 </div>
-                <small class="invalid" *ngIf="formulario.controls.textarea.errors?.required && formulario.controls.textarea.touched">
+                <small class="invalid" *ngIf="formulario.controls.comentario.errors?.required && formulario.controls.comentario.touched">
                     El comentario es requerido
                 </small>
             </div>
