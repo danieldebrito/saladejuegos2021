@@ -5,6 +5,14 @@
 
             <mat-card-actions>
                 <div class="row">
+                    <div class="col-3">
+                        <label for="">Cuantos aciertos haces :</label>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Objetivo de Aciertos : </mat-label>
+                            <input type="number" matInput placeholder="Ingresá la Cantidad : " value=""
+                                [(ngModel)]="cantAciertosDesafiados">
+                        </mat-form-field>
+                    </div>
                     <div class="col-2">
                         <button mat-raised-button color="accent" (click)="allClear()">INICIAR</button>
                     </div>
@@ -13,13 +21,6 @@
                     </div>
                     <div class="col-3">
                         <mat-card> Aciertos : {{ cantAciertosDisplay }}</mat-card>
-                    </div>
-                    <div class="col-3">
-                        <label for="">Cuantos aciertos haces :</label>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Objetivo de Aciertos : </mat-label>
-                            <input type="number" matInput placeholder="Ingresá la Cantidad : " value=""  [(ngModel)]="cantAciertosDesafiados" >
-                        </mat-form-field>
                     </div>
                 </div>
             </mat-card-actions>

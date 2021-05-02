@@ -48,18 +48,21 @@ export class MemorizaComponent implements OnInit {
   }
 
   public allClear() {
-    this.display = '_';
-    this.respuesta = '';
-    this.respuestaDisplay = '_';
-    this.serieAleatoria = '';
-    this.mensaje = 'Jugando';
-    this.agregaNroAleatorio();
-    this.cantAciertosDisplay = 0;
-    this.cantAciertos = 0;
+    if (this.cantAciertosDesafiados > 0) {
+      this.display = '_';
+      this.respuesta = '';
+      this.respuestaDisplay = '_';
+      this.serieAleatoria = '';
+      this.mensaje = 'Jugando';
+      this.agregaNroAleatorio();
+      this.cantAciertosDisplay = 0;
+      this.cantAciertos = 0;
+    } else {
+      this.mensaje = 'DEBES INGRESAR UNA CANTIDAD DE ACIERTOS!!!';
+    }
   }
 
   public agregaNroAleatorio() {
-
     this.serieAleatoria += Math.round(Math.random() * (9));
     this.display = this.serieAleatoria;
 
@@ -72,49 +75,54 @@ export class MemorizaComponent implements OnInit {
   }
 
   public cargarNroPulsado(nroPulsado) {
-    this.respuesta += nroPulsado;
-    this.respuestaDisplay = this.respuesta;
+    if (this.cantAciertosDesafiados != 0) {
 
-    let tam = this.respuesta.length - 1;
+      this.respuesta += nroPulsado;
+      this.respuestaDisplay = this.respuesta;
 
-    if (this.respuesta[tam] !== this.serieAleatoria[tam]) {
+      let tam = this.respuesta.length - 1;
 
-      this.resultado = 'Perdió';
-      this.puntaje = 0;
-      this.addJugada();
-      this.mensaje = 'PERDISTE!!!';
+      if (this.respuesta[tam] !== this.serieAleatoria[tam] && this.cantAciertosDesafiados != 0) {
 
-      this.display = this.serieAleatoria;
-      this.deshabilitaBotones = true;
-      return false;
-    }
+        this.resultado = 'Perdió';
+        this.puntaje = 0;
+        this.addJugada();
+        this.mensaje = 'PERDISTE!!!';
 
-    this.cantAciertos++;
+        this.display = this.serieAleatoria;
+        this.deshabilitaBotones = true;
+        return false;
+      }
 
-    if (this.cantAciertosDisplay <= this.cantAciertos) {
-      this.cantAciertosDisplay = this.cantAciertos;
-    }
+      this.cantAciertos++;
 
-    if (this.cantAciertos === this.cantAciertosDesafiados) {
+      if (this.cantAciertosDisplay <= this.cantAciertos) {
+        this.cantAciertosDisplay = this.cantAciertos;
+      }
 
-      this.resultado = 'Ganó';
-      this.puntaje = 10;
-      this.addJugada();
-      this.mensaje = 'GANASTE!!!';
+      if (this.cantAciertos === this.cantAciertosDesafiados && this.cantAciertosDesafiados != 0) {
 
-      this.display = this.serieAleatoria;
+        this.resultado = 'Ganó';
+        this.puntaje = 10;
+        this.addJugada();
+        this.mensaje = 'GANASTE!!!';
 
-      return true;
-    }
+        this.display = this.serieAleatoria;
 
-    if (this.serieAleatoria.length - 1 === tam) {
-      this.agregaNroAleatorio();
-      this.respuesta = '';
-      this.cantAciertos = 0;
+        return true;
+      }
+
+      if (this.serieAleatoria.length - 1 === tam && this.cantAciertosDesafiados != 0 && this.cantAciertosDesafiados != 0) {
+        this.agregaNroAleatorio();
+        this.respuesta = '';
+        this.cantAciertos = 0;
+      }
+    } else {
+      this.mensaje = 'DEBES INGRESAR UNA CANTIDAD DE ACIERTOS!!!';
     }
   }
 
-  
+
 
   ngOnInit(): void {
     window.scroll(0, 0);
