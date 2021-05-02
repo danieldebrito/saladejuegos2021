@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Encuesta } from 'src/app/class/encuesta';
 
 @Component({
   selector: 'app-listado',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
+  public encuesta: Encuesta = {};
+
   constructor() { }
+
+  cargaEncuesta(event){
+    this.encuesta = event.encuestaLanzada;
+  }
 
   ngOnInit(): void {
   }

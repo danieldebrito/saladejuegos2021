@@ -1,8 +1,8 @@
-<div class="container">
-    <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+<div class="container formulario mt-3">
+    <form [formGroup]="formulario" (ngSubmit)="cargarEncuesta()">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h2>Angular Forms</h2>
+                <h2>Completá la Encuesta</h2>
             </div>
         </div>
         <div class="row form">
@@ -10,29 +10,50 @@
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
                     formControlName="nombre">
-                <small class="invalid" *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
-                    El nombre es requerido
+                <small class="invalid"
+                    *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
+                    El nombre es requerido.
                 </small>
-                <small class="invalid" *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
-                    El nombre no puede contener espacios
+                <small class="invalid"
+                    *ngIf="formulario.controls.nombre.errors?.minlength && formulario.controls.nombre.touched">
+                    El nombre debe tener al menos dos caracteres.
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.nombre.errors?.maxlength && formulario.controls.nombre.touched">
+                    El nombre puede tener cuarenta caracteres maxino.
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
+                    El nombre no puede contener espacios.
                 </small>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="apellido" class="form-label">Apellido</label>
                 <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
                     formControlName="apellido">
-                <small class="invalid" *ngIf="formulario.controls.apellido.errors?.required && formulario.controls.apellido.touched">
+                <small class="invalid"
+                    *ngIf="formulario.controls.apellido.errors?.required && formulario.controls.apellido.touched">
                     El apellido es requerido
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.apellido.errors?.maxlength && formulario.controls.apellido.touched">
+                    El apellido puede tener cuarenta caracteres maxino.
                 </small>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="dni" class="form-label">Edad</label>
-                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
-                <small class="invalid" *ngIf="formulario.controls.edad.errors?.required && formulario.controls.edad.touched">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                <small class="invalid"
+                    *ngIf="formulario.controls.edad.errors?.required && formulario.controls.edad.touched">
                     La edad es requerida
                 </small>
-                <small class="invalid" *ngIf="formulario.controls.edad.errors?.min || formulario.controls.edad.errors?.max && formulario.controls.edad.touched">
+                <small class="invalid"
+                    *ngIf="formulario.controls.edad.errors?.min || formulario.controls.edad.errors?.max && formulario.controls.edad.touched">
                     La edad debe ser de 18 a 99 años
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.edad.errors?.pattern && formulario.controls.edad.touched">
+                    La edad debe contener solo numeros.
                 </small>
             </div>
             <div class="col-md-6 mb-3">
@@ -42,7 +63,8 @@
                     <option value="F">Femenino</option>
                     <option value="M">Masculino</option>
                 </select>
-                <small class="invalid" *ngIf="formulario.controls.sexo.errors?.required && formulario.controls.sexo.touched">
+                <small class="invalid"
+                    *ngIf="formulario.controls.sexo.errors?.required && formulario.controls.sexo.touched">
                     El sexo es requerido
                 </small>
             </div>
@@ -50,49 +72,64 @@
                 <label for="telefono" class="form-label">Telefono</label>
                 <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono"
                     formControlName="telefono">
-                <small class="invalid" *ngIf="formulario.controls.telefono.errors?.required && formulario.controls.telefono.touched">
+                <small class="invalid"
+                    *ngIf="formulario.controls.telefono.errors?.required && formulario.controls.telefono.touched">
                     El telefono es requerido
                 </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.telefono.errors?.minlength && formulario.controls.telefono.touched">
+                    El telefono debe tener al menos tres numeros.
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.telefono.errors?.maxlength && formulario.controls.telefono.touched">
+                    El telefono puede tener diez numeros maxino.
+                </small>
+                <small class="invalid"
+                    *ngIf="formulario.controls.telefono.errors?.pattern && formulario.controls.telefono.touched">
+                    El telefono debe contener solo numeros.
+                </small>
             </div>
-            <div class="col-md-6 mb-5">
+
+                <div class="col-md-6 mb-5">
                 <label for="cual" class="form-label">Cual Juego te Gustó Mas ??</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                            checked>
+                        <input class="form-check-input" type="radio" name="juego" id="gridRadios1" value="ppt" formControlName="juego">
                         <label class="form-check-label" for="gridRadios1">
                             Piedra Papel o Tijera
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="juego" id="gridRadios2" value="memotest" formControlName="juego">
                         <label class="form-check-label" for="gridRadios2">
                             Memotest
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="juego" id="gridRadios3" value="tateti" formControlName="juego">
                         <label class="form-check-label" for="gridRadios3">
                             TaTeTi
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+                        <input class="form-check-input" type="radio" name="juego" id="gridRadios4" value="memoriza" formControlName="juego">
                         <label class="form-check-label" for="gridRadios4">
                             Memorizá
                         </label>
                     </div>
                 </div>
-                <small class="invalid" *ngIf="formulario.controls.gridRadios.errors?.required && formulario.controls.telefono.touched">
-                    El telefono es requerido
+                <small class="invalid" *ngIf="formulario.controls.juego.errors?.required && formulario.controls.juego.touched">
+                    El Juego Preferido es requerido
                 </small>
             </div>
+        
             <div class="col-md-12 mb-5">
                 <div class="form-group">
                     <label for="comentario">Tu Comentario</label>
                     <textarea class="form-control" id="comentario" rows="3" formControlName="comentario"></textarea>
                 </div>
-                <small class="invalid" *ngIf="formulario.controls.comentario.errors?.required && formulario.controls.comentario.touched">
+                <small class="invalid"
+                    *ngIf="formulario.controls.comentario.errors?.required && formulario.controls.comentario.touched">
                     El comentario es requerido
                 </small>
             </div>
@@ -102,7 +139,7 @@
             <div class="col-md-12 mb-5">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
-                    <label for="recordar" class="form-check-label" for="terminos">
+                    <label class="form-check-label" for="terminos">
                         Aceptar términos y condiciones
                     </label>
                 </div>

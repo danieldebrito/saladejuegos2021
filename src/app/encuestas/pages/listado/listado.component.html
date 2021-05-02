@@ -1,1 +1,8 @@
-<p>listado works!</p>
+<div class="row">
+    <div class="col-sm-8">
+        <app-tabla (lanzaEncuesta)="cargaEncuesta($event)" ></app-tabla>
+    </div>
+    <div class="col-sm-4">
+        <app-detalle [encuesta]="encuesta" ></app-detalle>
+    </div>
+</div>
