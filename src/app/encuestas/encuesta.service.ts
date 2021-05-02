@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Encuesta } from 'src/app/claSS/encuesta';
+import { Encuesta } from 'src/app/class/encuesta';
 
 @Injectable({
   providedIn: 'root'
