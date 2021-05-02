@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './games/components/board/board.component';
 import { CommonModule } from '@angular/common';
-import { AdminGuard } from './auth/guards/admin.guard';
 import { UsuarioGuard } from './auth/guards/usuario.guard';
 
 
@@ -89,6 +88,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./encuestas/encuestas.module').then( m => m.EncuestasModule ),
+        canActivate: [UsuarioGuard]
       }
     ]
 
